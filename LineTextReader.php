@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/ReaderInterface.php";
 
-class LineTextReader implements Reader
+class LineTextReader implements ReaderInterface
 {
     /**
      * File name
@@ -39,10 +39,12 @@ class LineTextReader implements Reader
             '/\d{2}:\d{2}.*myname/',
             '/20\d{2}\/\d{2}\/\d{2}\(.*\)/',
             '/\(.*\)/',
-            '/\[.*\]/'
+            '/\[.*\]/',
+            '/\"/'
         );
 
         $replacements = array(
+            '',
             '',
             '',
             '',

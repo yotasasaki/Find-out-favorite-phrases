@@ -1,6 +1,6 @@
 <?php
 
-    interface Reader
+    interface ReaderInterface
     {
         public function getConvertedData();
     }

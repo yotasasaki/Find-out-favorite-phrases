@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/ReaderInterface.php";
+//require_once __DIR__ . "/ReaderInterface.php";
 require_once __DIR__ . "/LineTextReader.php";
 
 class ReaderFactory

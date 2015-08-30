@@ -1,6 +1,8 @@
 <?php
 
+require_once __DIR__ . "/config.php";
 require_once __DIR__ . "/ReaderFactory.php";
+require_once __DIR__ . "/AnalyzerFactory.php";
 
 class App
 {
@@ -13,7 +15,7 @@ class App
 
     public function run()
     {
-        $data = $this->_getData();
+        $data = $this->_readData();
         $this->_analyze($data);
     }
 
@@ -22,18 +24,18 @@ class App
         return $this->filename;
     }
 
-    private function _getData()
+    private function _readData()
     {
         $factory = new ReaderFactory();
         $data = $factory->create($this->_getFilename());
-
         return $data->getConvertedData();
-
     }
 
     private function _analyze($data)
     {
-        var_dump($data);
+        $factory = new AnalyzerFactory($data);
+        $data = $factory->create($data);
+        var_dump($data->analyze());
     }
 }
 
