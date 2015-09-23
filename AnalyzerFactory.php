@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . "/AnalyzerInterface.php";
-require_once __DIR__ . "/SimpleTextAnalyzer.php";
+require_once __DIR__ . "/YahooMorphologicalAnalyzer.php";
 
 class AnalyzerFactory
 {
@@ -14,7 +14,7 @@ class AnalyzerFactory
     private function _createAnalyzer($data)
     {
         if ($data) {
-            $d = new SimpleTextAnalyzer($data);
+            $d = new YahooMorphologicalAnalyzer($data);
             return $d;
         } else {
             die('Empty data.');

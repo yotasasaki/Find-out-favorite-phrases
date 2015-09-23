@@ -35,12 +35,14 @@ class LineTextReader implements ReaderInterface
     public function getConvertedData()
     {
         $patterns = array(
-            '/\d{2}:\d{2}.*friendsname/',
-            '/\d{2}:\d{2}.*myname/',
+            '/\d{2}\:\d{2}/',
+            '/frinendname/',
+            '/myname/',
             '/20\d{2}\/\d{2}\/\d{2}\(.*\)/',
             '/\(.*\)/',
             '/\[.*\]/',
-            '/\"/'
+            '/\"/',
+            '/\d/'
         );
 
         $replacements = array(
@@ -50,10 +52,11 @@ class LineTextReader implements ReaderInterface
             '',
             '',
             '',
+            '',
         );
 
         $data = preg_replace($patterns, $replacements, $this->data);
-
+echo $data;
         return $data;
     }
 }

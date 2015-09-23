@@ -15,8 +15,12 @@ class App
 
     public function run()
     {
-        $data = $this->_readData();
-        $this->_analyze($data);
+        try {
+            $data = $this->_readData();
+            $this->_analyze($data);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     private function _getFilename()
