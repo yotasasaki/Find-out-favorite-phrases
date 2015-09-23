@@ -56,7 +56,7 @@ class LineTextReader implements ReaderInterface
         );
 
         $data = preg_replace($patterns, $replacements, $this->data);
-echo $data;
+
         return $data;
     }
 }
